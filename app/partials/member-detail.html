@@ -1,0 +1,11 @@
+<div>
+  Bills
+  <ul ng-repeat = "bill in member.bills">
+      <li>{{bill.billid}}</li> <li>{{bill.description}}</li><li>{{bill.vote}}</li>
+  </ul>
+  <ul></ul>
+  Donors
+  <ul ng-repeat = "donor in member.donors">
+      <a href= '#/donor/{{donor.id}}'>{{donor.name}}</a> <li>{{donor.amount | currency}}</li>
+  </ul>
+</div>

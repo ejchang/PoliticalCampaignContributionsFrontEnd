@@ -1,0 +1,11 @@
+<div>
+  <li> Representatives </li>
+  <ul ng-repeat = "member in members">
+    <a href = '#/member/{{member.id}}'>{{member.name}}</a>
+    <ul>
+      <li>{{member.party}}</li>
+      <li>{{member.chamber}}</li>
+      <li>{{member.state}}</li>
+    </ul>
+  </ul>
+</div>
