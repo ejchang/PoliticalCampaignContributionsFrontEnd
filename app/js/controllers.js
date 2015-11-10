@@ -12,6 +12,12 @@ donationsControllers.controller('HomeCtrl', ['$scope', '$http',
     }).error(function(){
       alert("Error");
     });
+    $scope.isSenate = function(member) {
+      return member.chamber == "Senate"
+    };
+    $scope.isRep = function(member) {
+      return member.chamber == "House"
+    };
   }]);
 
 

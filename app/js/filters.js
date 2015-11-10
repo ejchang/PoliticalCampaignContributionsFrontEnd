@@ -2,8 +2,10 @@
 
 /* Filters */
 
-angular.module('phonecatFilters', []).filter('checkmark', function() {
+angular.module('donationsFilter', [])
+.filter('senate', function() {
   return function(input) {
-    return input ? '\u2713' : '\u2718';
-  };
-});
+    console.log("hello")
+    return input.chamber == 'Senate'
+  }
+})

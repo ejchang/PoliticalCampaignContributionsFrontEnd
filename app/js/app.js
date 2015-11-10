@@ -7,7 +7,7 @@ var donationsApp = angular.module('donationsApp', [
   'phonecatAnimations',
 
   'donationsControllers',
-  'phonecatFilters',
+  'donationsFilter',
   'phonecatServices'
 ]);
 
