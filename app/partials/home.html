@@ -1,16 +1,48 @@
-<div>
-  <h3> Representatives </h3>
-  <dl ng-repeat = "member in members | filter:isRep">
-    <dt><a href = '#/member/{{member.id}}'>{{member.name}}</a></dt>
-    <dd>{{member.party}}</dd>
-    <dd>{{member.state}}</dd>
-  </dl>
-  <h3>Senators</h3>
-  <ul ng-repeat = "member in members | filter:isSenate">
-    <h4><a href = '#/member/{{member.id}}'>{{member.name}}</a></h4>
-    <ul>
-      <li>{{member.party}}</li>
-      <li>{{member.state}}</li>
-    </ul>
-  </ul>
+<div class= "container-fluid">
+  <nav class="navbar navbar-default navbar-fixed-top">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#/home">Political Campaign Contributions</a>
+      </div>
+  </nav>
+
+  <div class="jumbotron">
+    <div class="lead">
+    <p> 
+    On January 21, 2010, the United States Supreme Court ruled that the government cannot restrict the amount a for-profit corporation corporation, labor union or voluntary association donates to a Political Action Committee (PAC), as doing so would restrict free speech. Even though the court held that any individual or organization could not make direct contributions to a candidate running for office, many were concerned with whether donations to a candidate&#39;s political action committee would affect a candidates policy decisions when in office. PACs provide most of the logistical support for candidates running for office (running advertisements, organizing trips, planning speeches, etc.), so if a politician votes against the interest of an organization providing donations, that candidate would risk losing those PAC donations in the next election cycle.</p>
+    
+    <p> Our website examines if campaign finances influence how a politican makes decisions by examining the top contributors to a politican's campaign and their voting records.
+    </p>
+    </div>
+  </div>
+  
+  <h2>Search for your politician now: </h2>
+  <!-- Search box -->
+  
+  <div class="input-group">
+    <div class="input-group-btn">
+      <div class="dropdown">
+        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" value="All" aria-haspopup="true" aria-expanded="false" >All <span class="caret"></span></button>
+        <ul class="dropdown-menu" value="All">
+          <li ><a href="#/home">Representative</a></li>
+          <li ><a href="#/home">Senator</a></li>
+        </ul>
+      </div>
+    </div><!-- /btn-group -->
+    <input type="text" class="form-control" aria-label="..." ng-model="query">
+  </div><!-- /input-group -->
+    
+  <h3> Members of the 114th US Congress </h3>   
+  <div ng-repeat = "member in members | filter:query">
+    <dl class="col-md-4">
+      <dt><a href = '#/member/{{member.id}}'>{{member.name}}</a></dt>
+      <dd>{{member.party}}, {{member.state}}</dd>
+    </dl>
+  </div>
+<!--   <div class="col-md-6">
+    <h3>Senators</h3>
+    <dl ng-repeat = "member in members | filter:isSenate | filter:query">
+      <dt><a href = '#/member/{{member.id}}'>{{member.name}}</a></dt>
+      <dd>{{member.party}}, {{member.state}}</dd>
+    </dl>
+  </div> -->
 </div>

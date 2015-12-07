@@ -1,6 +1,26 @@
 /* app css stylesheet */
 
 body {
-  padding-top: 20px;
-  padding-left: 20px;
+  padding-top: 80px;*/
+  padding-bottom: 30px;
+  padding-left:20px;
+  padding-right:20px;
+
 }
+
+.dt .a {
+  font-size:20px;
+}
+
+.navbar-header {
+    float: left;
+    padding: 15px;
+    text-align: center;
+    width: 100%;
+}
+.navbar-brand {
+	float:center;
+	font-size: 30px;
+	font-weight:bold;
+}
+
