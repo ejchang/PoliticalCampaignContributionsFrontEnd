@@ -13,10 +13,10 @@ donationsControllers.controller('HomeCtrl', ['$scope', '$http',
       alert("Error");
     });
     $scope.isSenate = function(member) {
-      return member.chamber == "Senate"
+      return member.chamber == "sen"
     };
     $scope.isRep = function(member) {
-      return member.chamber == "House"
+      return member.chamber == "rep"
     };
   }]);
 
@@ -28,7 +28,9 @@ donationsControllers.controller('MemberCtrl', ['$scope', '$http', '$routeParams'
     }).error(function(){
       alert("Error");
     });
-  }]);
+    $scope.details = { show: true };
+  }]
+);
 
 donationsControllers.controller('DonorCtrl', ['$scope', '$http', '$routeParams',
   function($scope, $http, $routeParams) {

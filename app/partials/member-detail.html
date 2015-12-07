@@ -6,6 +6,10 @@
   <ul></ul>
   Donors
   <ul ng-repeat = "donor in member.donors">
-      <a href= '#/donor/{{donor.id}}'>{{donor.name}}</a> <li>{{donor.amount | currency}}</li>
+      <li>{{donor.industry}}</li> <li>{{donor.amount | currency}}</li>
+      <a ng-click="collapsed=!collapsed"> Click to expand </a>
+        <ul ng-repeat = "(pac,amount) in donor.pacs">
+          <li ng-show="collapsed"> {{pac}}: {{amount | currency}}</li>
+        </ul>
   </ul>
 </div>
