@@ -5,8 +5,8 @@
 var donationsControllers = angular.module('donationsControllers', []);
 
 
-donationsControllers.controller('HomeCtrl', ['$scope', '$http',
-  function($scope, $http) {
+donationsControllers.controller('HomeCtrl', ['$scope', '$rootScope','$http',
+  function($scope, $rootScope, $http) {
     $http.get('http://localhost:8080/congress').success(function(data) {
       $scope.members = data;
     }).error(function(){
@@ -21,7 +21,7 @@ donationsControllers.controller('HomeCtrl', ['$scope', '$http',
   }]);
 
 
-donationsControllers.controller('MemberCtrl', ['$scope', '$http', '$routeParams',
+donationsControllers.controller('MemberCtrl', ['$scope', '$http',  '$routeParams',
   function($scope, $http, $routeParams) {
     $http.get('http://localhost:8080/member/' + $routeParams.memberId ).success(function(data) {
       $scope.member = data;

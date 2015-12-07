@@ -1,15 +1,41 @@
-<div>
-  Bills
-  <ul ng-repeat = "bill in member.bills">
-      <li>{{bill.billid}}</li> <li>{{bill.description}}</li><li>{{bill.vote}}</li>
-  </ul>
-  <ul></ul>
-  Donors
-  <ul ng-repeat = "donor in member.donors">
-      <li>{{donor.industry}}</li> <li>{{donor.amount | currency}}</li>
-      <a ng-click="collapsed=!collapsed"> Click to expand </a>
+<div class= "container-fluid">
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="navbar-header">
+        <!-- want to add member's name above -->
+        	<a class="navbar-brand" href="#/home">Political Campaign Contributions</a>
+      </div>
+  	</nav>
+
+  	<div class="row">
+  		<div class="col-sm-12">
+		  	<pre>
+		  		<h2>{{member.name}}</h2>
+          <h4>{{member.party}}</h4>
+          <h4>{{member.state}}</h4>
+		  	</pre>
+		</div>
+  	</div>
+
+  	<div class="row">
+	  	<div class="col-sm-6">
+		  	<h3>Bills Voted</h3>
+		  	<dl ng-repeat = "bill in member.bills">
+		  		<dt>{{bill.billid}}</dt>
+				<dd>{{bill.description}}</dd>
+				<dd>{{bill.vote}}</dd>
+		  	</dl>
+		</div>
+
+		<div class="col-sm-6">
+			<h3>Top 20 Donors</h3>
+			<dl ng-repeat = "donor in member.donors">
+				<dt><a href= '#/donor/{{donor.id}}'>{{donor.industry}}</a></dt>
+				<dd>{{donor.amount | currency}}</dd>
+        <a ng-click="collapsed=!collapsed"> Click to expand </a>
         <ul ng-repeat = "(pac,amount) in donor.pacs">
           <li ng-show="collapsed"> {{pac}}: {{amount | currency}}</li>
         </ul>
-  </ul>
+			</dl>
+		</div>
+	</div>
 </div>
