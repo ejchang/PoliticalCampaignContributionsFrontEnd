@@ -25,6 +25,12 @@ donationsControllers.controller('MemberCtrl', ['$scope', '$http',  '$routeParams
   function($scope, $http, $routeParams) {
     $http.get('http://localhost:8080/member/' + $routeParams.memberId ).success(function(data) {
       $scope.member = data;
+
+      if ($scope.member.chamber=='rep'){
+        $scope.chamber="Representative"
+      }else{
+        $scope.chamber="Senator"
+      }
     }).error(function(){
       alert("Error");
     });
