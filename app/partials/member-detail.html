@@ -8,16 +8,17 @@
 
   	<div class="row">
   		<div class="col-sm-12">
-		  	<pre>
+		  	<div class="jumbotron">
 		  		<h2>{{member.name}}</h2>
-          <h4>{{member.party}}</h4>
-          <h4>{{member.state}}</h4>
+         	 	<h4>{{member.party}}, {{member.state}}</h4>
+         	 	
+  
 		  	</pre>
 		</div>
   	</div>
 
   	<div class="row">
-	  	<div class="col-sm-6">
+	  	<div class="col-sm-6" style="padding-left:30px">
 		  	<h3>Bills Voted</h3>
 		  	<dl ng-repeat = "bill in member.bills">
 		  		<a href = '#/bill/{{bill.billid}}'><dt>{{bill.billid}}: {{bill.billname}}</dt></a>
@@ -27,14 +28,14 @@
 		</div>
 
 		<div class="col-sm-6">
-			<h3>Top 20 Donors</h3>
+			<h3>Top 20 Industry Donors</h3>
 			<dl ng-repeat = "donor in member.donors">
-				<dt><a href= '#/donor/{{donor.id}}'>{{donor.industry}}</a></dt>
+				<dt>{{donor.industry}}</dt>
 				<dd>{{donor.amount | currency}}</dd>
-        <a ng-click="collapsed=!collapsed"> Click to expand </a>
-        <ul ng-repeat = "(pac,amount) in donor.pacs">
-          <li ng-show="collapsed"> {{pac}}: {{amount | currency}}</li>
-        </ul>
+        			<a ng-click="collapsed=!collapsed"> Click to analyze specific PAC donations </a>
+			        <ul ng-repeat = "(pac,amount) in donor.pacs">
+			          <dd ng-show="collapsed"> {{pac}}: {{amount | currency}}</dt>
+			        </ul>
 			</dl>
 		</div>
 	</div>

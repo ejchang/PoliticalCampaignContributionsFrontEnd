@@ -8,20 +8,27 @@
 
 	<div class="row">
 		<div class="col-sm-12">
-	  	<pre>
-	  		<h2>Bill {{bill.billid}}: {{bill.billname}}</h2>
-        <h4>{{bill.voteDate}}</h4>
-        <h4>{{bill.description}}</h4>
+	  	<div class="jumbotron">
+	  		<h3>Bill {{bill.billid}}: {{bill.billname}}</h2>
+        <p>Date: {{bill.voteDate}}</p>
+        <p>Bill Description: {{bill.description}}</p>
 	  	</pre>
 	  </div>
 	</div>
-  <div class="btn-group inline pull-left">
-    <button class="btn btn-default" type="button" ng-click="showDetails = ! showDetails">By Vote</div>
-    <button class="btn btn-default" type="button" ng-click="showDetails = ! showDetails">By Party</div>
+  <div style="padding-left:20px">
+    <h3>Sort by:</h3>
+    <div class="btn-group inline pull-left" >
+      <button  class="btn btn-default" type="button" ng-click="showDetails = ! showDetails" >By Vote</div>
+      <button class="btn btn-default" type="button" ng-click="showDetails = ! showDetails">By Party</div>
+    </div>
   </div>
 
-  <div ng-hide="showDetails">
-    <canvas id="pie" class="chart chart-pie" chart-data="counts" chart-labels="labels"></canvas>
+  <div ng-hide="showDetails" style="padding-left:20px">
+    <div class="row">
+      <div class="col-md-6">
+        <canvas id="pie" class="chart chart-pie" chart-data="counts" chart-labels="labels"></canvas>
+      </div>
+    </div>
     <div class="row">
     	<div class="col-md-4">
   	  	<h3>Yes</h3>
@@ -45,11 +52,15 @@
       </div>
     </div>
   </div>
-  <div ng-show="showDetails">
-    <h3> Republican Votes </h3>
-    <canvas id="pie" class="chart chart-pie" chart-data="repcounts" chart-labels="labels"></canvas>
-    <h3> Democrat Votes </h3>
-    <canvas id="pie" class="chart chart-pie" chart-data="demcounts" chart-labels="labels"></canvas>
+  <div ng-show="showDetails" style="padding-left:20px">
+    <div class="col-md-6">
+      <h3> Republican Votes </h3>
+      <canvas id="pie" class="chart chart-pie" chart-data="repcounts" chart-labels="labels"></canvas>
+    </div>
+    <div class="col-md-6">
+      <h3> Democrat Votes </h3>
+      <canvas id="pie" class="chart chart-pie" chart-data="demcounts" chart-labels="labels"></canvas>
+    </div>
   </div>
 
 </div>

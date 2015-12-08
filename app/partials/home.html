@@ -18,20 +18,23 @@
   <h2>Search for your politician now: </h2>
   <!-- Search box -->
   
-  <div class="input-group">
-    <div class="input-group-btn">
-      <div class="dropdown">
-        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" value="All" aria-haspopup="true" aria-expanded="false" >All <span class="caret"></span></button>
-        <ul class="dropdown-menu" value="All">
-          <li ><a href="#/home">Representative</a></li>
-          <li ><a href="#/home">Senator</a></li>
-        </ul>
+  <div class="row">
+    <div id="custom-search-input">
+      <div class="input-group col-md-12">
+        <input type="text" class="form-control" placeholder="Ben Carson" ng-model="query">
+        <span class="input-group-btn">
+           <button class="btn btn-danger" type="button">
+            <span class=" glyphicon glyphicon-search"></span>
+            </button>
+        </span>
       </div>
-    </div><!-- /btn-group -->
-    <input type="text" class="form-control" aria-label="..." ng-model="query">
-  </div><!-- /input-group -->
+    </div>
+  </div>
     
-  <h3> Members of the 114th US Congress </h3>   
+  
+    
+  <h2 style="text-align:center;padding-bottom:14px"> Members of the 114th US Congress </h2> 
+  
   <div ng-repeat = "member in members | filter:query">
     <dl class="col-md-4">
       <dt><a href = '#/member/{{member.id}}'>{{member.name}}</a></dt>
