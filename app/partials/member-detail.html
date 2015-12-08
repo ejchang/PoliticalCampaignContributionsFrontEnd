@@ -18,9 +18,28 @@
   	</div>
 
   	<div class="row">
-	  	<div class="col-sm-6" style="padding-left:30px">
+	  	<div class="col-sm-6">
 		  	<h3>Bills Voted</h3>
-		  	<dl ng-repeat = "bill in member.bills">
+		  	 <div class="row">
+    			<div id="custom-search-input">
+      				<div class="input-group col-md-12">
+        				<input type="text" class="form-control" placeholder="Search.." ng-model="query2">
+       				<span class="input-group-btn">
+           			<button class="btn btn-primary" type="button">
+            			<span class=" glyphicon glyphicon-search"></span>
+            		</button>
+        			</span>
+      				</div>
+   				 </div>
+ 			 </div>
+
+
+
+
+
+
+
+		  	<dl ng-repeat = "bill in member.bills |filter: query2">
 		  		<a href = '#/bill/{{bill.billid}}'><dt>{{bill.billid}}: {{bill.billname}}</dt></a>
 					<dd>{{bill.description}}</dd>
 					<dd>{{bill.vote}}</dd>
