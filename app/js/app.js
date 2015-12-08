@@ -5,7 +5,7 @@
 var donationsApp = angular.module('donationsApp', [
   'ngRoute',
   'phonecatAnimations',
-
+  'chart.js',
   'donationsControllers',
   'donationsFilter',
   'phonecatServices'
@@ -22,9 +22,9 @@ donationsApp.config(['$routeProvider',
         templateUrl: 'partials/member-detail.html',
         controller: 'MemberCtrl'
       }).
-      when('/donor/:donorId', {
-        templateUrl: 'partials/donor-detail.html',
-        controller: 'DonorCtrl'
+      when('/bill/:billId', {
+        templateUrl: 'partials/bill-detail.html',
+        controller: 'BillCtrl'
       }).
       otherwise({
         redirectTo: '/home'
@@ -33,5 +33,5 @@ donationsApp.config(['$routeProvider',
 
 function dropdown(val) {
   var y = document.getElementsByClassName('btn btn-default dropdown-toggle');
-  var aNode = y[0].innerHTML = val + ' <span class="caret"></span>'; // Append 
+  var aNode = y[0].innerHTML = val + ' <span class="caret"></span>'; // Append
 }

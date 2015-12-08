@@ -1,0 +1,55 @@
+<div class= "container-fluid">
+	<nav class="navbar navbar-default navbar-fixed-top">
+		<div class="navbar-header">
+        <!-- want to add member's name above -->
+        	<a class="navbar-brand" href="#/home">Political Campaign Contributions</a>
+    </div>
+  </nav>
+
+	<div class="row">
+		<div class="col-sm-12">
+	  	<pre>
+	  		<h2>Bill {{bill.billid}}: {{bill.billname}}</h2>
+        <h4>{{bill.voteDate}}</h4>
+        <h4>{{bill.description}}</h4>
+	  	</pre>
+	  </div>
+	</div>
+  <div class="btn-group inline pull-left">
+    <button class="btn btn-default" type="button" ng-click="showDetails = ! showDetails">By Vote</div>
+    <button class="btn btn-default" type="button" ng-click="showDetails = ! showDetails">By Party</div>
+  </div>
+
+  <div ng-hide="showDetails">
+    <canvas id="pie" class="chart chart-pie" chart-data="counts" chart-labels="labels"></canvas>
+    <div class="row">
+    	<div class="col-md-4">
+  	  	<h3>Yes</h3>
+  	  	<dl ng-repeat = "member in bill.votes | filter:votedYay">
+  	  		<a href = '#/member/{{member.id}}'><dt>{{member.member}}: {{member.party}}, {{member.state}}</dt></a>
+  	  	</dl>
+  	  </div>
+
+  		<div class="col-md-4">
+  			<h3>No</h3>
+        <dl ng-repeat = "member in bill.votes | filter:votedNay">
+          <a href = '#/member/{{member.id}}'><dt>{{member.member}}: {{member.party}}, {{member.state}}</dt></a>
+        </dl>
+  		</div>
+
+      <div class="col-md-4">
+        <h3>Abstain</h3>
+        <dl ng-repeat = "member in bill.votes | filter:votedAbstain">
+          <a href = '#/member/{{member.id}}'><dt>{{member.member}}: {{member.party}}, {{member.state}}</dt></a>
+        </dl>
+      </div>
+    </div>
+  </div>
+  <div ng-show="showDetails">
+    <h3> Republican Votes </h3>
+    <canvas id="pie" class="chart chart-pie" chart-data="repcounts" chart-labels="labels"></canvas>
+    <h3> Democrat Votes </h3>
+    <canvas id="pie" class="chart chart-pie" chart-data="demcounts" chart-labels="labels"></canvas>
+  </div>
+
+</div>

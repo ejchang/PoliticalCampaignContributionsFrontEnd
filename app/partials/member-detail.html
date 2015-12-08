@@ -20,9 +20,9 @@
 	  	<div class="col-sm-6">
 		  	<h3>Bills Voted</h3>
 		  	<dl ng-repeat = "bill in member.bills">
-		  		<dt>{{bill.billid}}</dt>
-				<dd>{{bill.description}}</dd>
-				<dd>{{bill.vote}}</dd>
+		  		<a href = '#/bill/{{bill.billid}}'><dt>{{bill.billid}}: {{bill.billname}}</dt></a>
+					<dd>{{bill.description}}</dd>
+					<dd>{{bill.vote}}</dd>
 		  	</dl>
 		</div>
 
